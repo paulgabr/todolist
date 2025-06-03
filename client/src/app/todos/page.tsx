@@ -24,10 +24,10 @@ export default function TodoListPage() {
 
   return (
     <main>
-      <h1>Minhas Tasks</h1>
+      <h1>Minhas Tarefas</h1>
 
       <Link href="/todos/create">
-        Criar Task
+        Criar Tarefa
       </Link>
 
       <ul>
