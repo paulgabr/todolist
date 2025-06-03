@@ -16,7 +16,7 @@ export async function getTodo(id: number) {
   return response.json();
 }
 
-export async function createTodo(todo: { title: string; description: string; done: boolean }) {
+export async function createTodo(todo: { title: string; description: string; done: number }) {
   const response = await fetch(`${API_URL}/todos`, {
     method: 'POST',
     headers: {
@@ -30,9 +30,9 @@ export async function createTodo(todo: { title: string; description: string; don
   return response.json();
 }
 
-export async function updateTodo(id: number, data: { title: string; description: string; done: boolean }) {
+export async function updateTodo(id: number, data: { title: string; description: string; done: number }) {
   const response = await fetch(`${API_URL}/todos/${id}`, {
-    method: 'PATCH',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },

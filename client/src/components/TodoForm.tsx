@@ -31,8 +31,11 @@ export default function TodoForm() {
                     onChange={(e) => setDone(e.target.checked)}
                     className="mr-2"
                 />
-                Done
+                Concluído
             </label>
+            <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
+                Adicionar Tarefa
+            </button>
         </form>
     );
 }
