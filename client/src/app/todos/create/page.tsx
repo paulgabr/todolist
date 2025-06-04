@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { createTodo } from '@/lib/api'
 import { useRouter } from 'next/navigation'
+import styles from './page.module.css'
 
 export default function CreateTodoPage() {
   const [title, setTitle] = useState('')
@@ -16,30 +17,34 @@ export default function CreateTodoPage() {
   }
 
   return (
-    <main>
-      <h1>Criar Task</h1>
+    <main className={styles.main}>
+      <h1 className={styles.title}>Criar Tarefa</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Título:</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="title" className={styles.label}>Título:</label>
           <input
             type="text"
             id="title"
+            className={styles.input}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label htmlFor="description">Descrição:</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="description" className={styles.label}>Descrição:</label>
           <textarea
             id="description"
+            className={styles.input}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
-        <button type="submit">Salvar</button>
-        <button type="button" onClick={() => router.push('/todos')}>Cancelar</button>
+        <div className={styles.buttonGroup}>
+          <button type="submit" className={styles.button}>Salvar</button>
+          <button type="button" onClick={() => router.push('/todos')} className={styles.button}>Cancelar</button>
+        </div>
       </form>
     </main>
   )
