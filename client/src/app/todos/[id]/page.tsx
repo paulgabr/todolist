@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { getTodo, updateTodo, deleteTodo } from "@/lib/api"
 import { useParams, useRouter } from "next/navigation"
+import styles from "./page.module.css"
 
 export default function EditTodoPage() {
   const { id } = useParams()
@@ -34,39 +35,44 @@ export default function EditTodoPage() {
   }
 
   return (
-    <main>
-      <h1>Editar Task</h1>
+    <main className={styles.main}>
+      <h1 className={styles.title}>Editar Tarefa</h1>
       <form action="" onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Título:</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="title" className={styles.label}>Título:</label>
           <input
             type="text"
             id="title"
             value={title}
+            className={styles.input}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label htmlFor="description">Descrição:</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="description" className={styles.label}>Descrição:</label>
           <textarea
             id="description"
             value={description}
+            className={styles.input}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label htmlFor="done">Concluído:</label>
+        <div className={styles.checkboxGroup}>
+          <label htmlFor="done" className={styles.labelCheckbox}>Concluído:</label>
           <input
             type="checkbox"
             id="done"
             checked={done}
+            className={styles.checkbox}
             onChange={(e) => setDone(e.target.checked)}
           />
         </div>
-        <button type="submit">Salvar</button>
-        <button type="button" onClick={handleDelete}>Excluir</button>
+        <div className={styles.buttonGroup}>
+          <button type="submit" className={styles.button}>Salvar</button>
+          <button type="button" onClick={handleDelete} className={styles.button}>Excluir</button>
+        </div>
       </form>
     </main>
   )
