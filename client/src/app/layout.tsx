@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import './globals.css';
 
 export const metadata: Metadata = {
   title: "Todolist",
@@ -12,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt">
-      <body style={{backgroundColor: "rgb(137, 185, 185)"}}>
+      <body>
         {children}
       </body>
     </html>
