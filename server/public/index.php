@@ -24,6 +24,7 @@ $app->options('/{routes:.+}', function (Request $request, $response, $args) {
     return $response;
 });
 
+require __DIR__ . '/../src/routes/users.php';
 require __DIR__ . '/../src/routes/todos.php';
 
 $app->run();

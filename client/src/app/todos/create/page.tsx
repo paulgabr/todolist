@@ -38,7 +38,6 @@ export default function CreateTodoPage() {
             className={styles.input}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
           />
         </div>
         <div className={styles.buttonGroup}>
