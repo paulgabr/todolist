@@ -3,5 +3,5 @@
 import { redirect } from 'next/navigation';
 
 export default function Home() {
-    redirect('/todos'); // Redirect to the todos page    
+    redirect('/login'); // Redirect to the login page
 }

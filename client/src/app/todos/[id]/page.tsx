@@ -56,7 +56,6 @@ export default function EditTodoPage() {
             value={description}
             className={styles.input}
             onChange={(e) => setDescription(e.target.value)}
-            required
           />
         </div>
         <div className={styles.checkboxGroup}>
