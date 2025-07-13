@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
+import Link from 'next/link';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -15,7 +16,7 @@ export default function RegisterPage() {
     e.preventDefault();
     setError('');
     setSuccess('');
-    const res = await fetch('http://localhost:8000/register', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -57,7 +58,7 @@ export default function RegisterPage() {
         />
         <button type="submit" className={styles.button}>Registrar</button>
         <p>
-          Já tem conta? <a className={styles.link} href="/login">Entrar</a>
+          Já tem conta? <Link className={styles.link} href="/login">Entrar</Link>
         </p>
       </form>
     </main>

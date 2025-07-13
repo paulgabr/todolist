@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
+import Link from 'next/link';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -13,7 +14,7 @@ export default function LoginPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError('');
-    const res = await fetch('http://localhost:8000/login', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -53,7 +54,7 @@ export default function LoginPage() {
         />
         <button type="submit" className={styles.button}>Entrar</button>
         <p>
-          Não tem conta? <a className={styles.link} href="/register">Registre-se</a>
+          Não tem conta? <Link className={styles.link} href="/register">Registre-se</Link>
         </p>
       </form>
     </main>
